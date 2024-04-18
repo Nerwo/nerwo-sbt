@@ -17,8 +17,9 @@ contract NerwoSBTTest is Test {
 
     function test_Mint() public {
         address freelancer = makeAddr("freelancer");
-        sbt.safeMint(freelancer, 42, IPFS_URL);
-        assertEq(sbt.tokenURI(42), IPFS_URL);
+        string memory metadata = vm.readFile("test/metadata.b64");
+        sbt.safeMint(freelancer, 42, metadata);
+        assertEq(sbt.tokenURI(42), metadata);
     }
 
     function test_AlreadyMinted() public {

@@ -7,6 +7,8 @@ solc_version = '0.8.25'
 optimizer = true
 optimizer_runs = 2000
 
+fs_permissions = [{ access = "read", path = "./test/metadata.b64"}]
+
 [rpc_endpoints]
 amoy = "${AMOY_RPC_URL}"
 
